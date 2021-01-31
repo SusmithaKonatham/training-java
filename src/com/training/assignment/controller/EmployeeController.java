@@ -40,8 +40,8 @@ public final class EmployeeController {
         return isValid;
     }
 
-    public void updateEmployee(int employeeId,
-                               final String name, final int age, final int salary) {
+    public void updateEmployee(int employeeId,final String name, final int age, final int salary) 
+    {
         if (employeeId < 0)
             throw new RuntimeException("Invalid employee Id");
 
@@ -49,15 +49,18 @@ public final class EmployeeController {
 
     }
 
-    public void deleteEmployee(int employeeId) {
+    public void deleteEmployee(int employeeId) 
+    {
         employeeService.deleteEmployee(1);
     }
 
-    public List<Employee> listEmployee() {
+    public List<Employee> listEmployee() 
+    {
         return employeeService.listEmployees();
     }
 
-    public Menu showEmployeeMenu() {
+    public Menu showEmployeeMenu() 
+    {
         return employeeService.showMenu();
     }
 }

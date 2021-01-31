@@ -3,11 +3,19 @@ package com.training.assignment.service;
 import com.training.assignment.framework.Menu;
 import com.training.assignment.framework.MenuItem;
 import com.training.assignment.framework.MenuProvider;
+import com.training.assignment.model.Employee;
+import com.training.assignment.model.Project;
+import com.training.assignment.repository.EmployeeRepository;
+import com.training.assignment.repository.ProjectRepository;
 
 public class ProjectService implements MenuProvider {
-
-    public void createProject() {
-
+	private ProjectRepository projectRepository = new ProjectRepository();
+    public int createProject(String projectName, String projectTechnology, String projectDuration) 
+    {
+    	final int uniqueIdentifier = ProjectIDGenerator.generateID();
+        Project project = new Project(projectName, projectTechnology, uniqueIdentifier, projectDuration);
+        projectRepository.save(project);
+        return uniqueIdentifier;
     }
 
     public void updateProject(String projectId) {
